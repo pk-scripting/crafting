@@ -47,11 +47,29 @@ function OpenCraftingMenu(items)
             table.insert(metadata, { label = req.label, value = req.amount })
         end
 
+        if item.image ~= "" then
+            image = item.image
+        else
+            image = nil
+        end
+
+        if item.icon ~= "" then
+            icon = item.icon
+        else
+            icon = nil
+        end
+
+        if item.description ~= "" then
+            description = item.description
+        else
+            description = nil
+        end
+        
         table.insert(options, {
             title = item.title,
-            description = item.description or nil,
-            icon = item.icon or nil,
-            image = item.image or nil,
+            description = description,
+            icon = icon,
+            image = image,
             metadata = metadata,
             onSelect = function()
                 local Crafted = lib.callback.await('pk-crafting:craftItem', false, item)
