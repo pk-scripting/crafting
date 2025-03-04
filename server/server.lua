@@ -22,10 +22,15 @@ lib.callback.register('pk-crafting:craftItem', function(source, item)
     if hasAllItems then
         TriggerClientEvent('pk-crafting:progressBar', source, item)
         Wait(5000)
+        
         for _, requiredItem in ipairs(item.requiredItems) do
             exports.ox_inventory:RemoveItem(source, requiredItem.item, requiredItem.amount)
         end
-        exports.ox_inventory:AddItem(source, item.reward.item, item.reward.amount)
+
+        for _, rewardItem in ipairs(item.reward) do
+            exports.ox_inventory:AddItem(source, rewardItem.item, rewardItem.amount)
+        end
+        
         return true
     else
         return false
