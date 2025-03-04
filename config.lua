@@ -17,9 +17,8 @@ Config.Crafting = {
                     { item = "money", label = "Penge", amount = 10000 },
                     { item = "armour", label = "Vest", amount = 5 }
                 },
-                reward = {
-                    item = "weapon_pistol", -- Item man modtager
-                    amount = 1 -- Antal af item man modtager
+                reward = { -- giv en eller flere items, hvis man har alle materialer
+                    { item = "weapon_pistol", amount = 1 }
                 }
             },
             {
@@ -33,8 +32,7 @@ Config.Crafting = {
                     { item = "smg_blueprint", label = "SMG Blueprint", amount = 1 }
                 },
                 reward = {
-                    item = "weapon_smg",
-                    amount = 1
+                    { item = "weapon_smg", amount = 1 }
                 }
             }
         }
